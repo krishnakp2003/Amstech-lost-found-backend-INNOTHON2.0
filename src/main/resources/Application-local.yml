@@ -1,0 +1,48 @@
+spring:
+  name: lost-found-local
+#  datasource:
+#    platform: mysql
+#    type: com.zaxxer.hikari.HikariDataSource
+#    
+#    url: jdbc:mysql://localhost:3306/task_management_system
+#    username: root
+#    password: Krishna@2004
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    hikari: 
+#      minimumIdle: 5
+#      maximumPoolSize: 10
+#      idleTimeout: 30000
+#      poolName: task-system-pool-local	
+#      maxLifetime: 2000000
+#      connecetionTimeout: 30000
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    generate-ddl: false
+#    show-sql: false
+#    properties:
+#      hibernate:
+#        show_sql: false
+#        format_sql: false
+#        dialect: org.hibernate.dialect.MySQL8Dialect 
+#  web:
+#    resources:
+#      static-locations: file:./storage/
+server:
+  servlet:
+    context-path: /lost-found-local
+  port: 1024
+  
+logging:
+    file.name: logs/lost-found.log
+    pattern:
+      console: "%d %-5level [%thread] %logger : %msg%n"
+      file: "%d %-5level [%thread] %logger : %msg%n"
+    level:
+       org.springframework.web: INFO
+       org.hibernate: INFO
+       com.amstech.talent.hands: INFO
+app:
+  max-file-size: 2097152000
+    
+
