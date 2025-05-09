@@ -21,6 +21,7 @@ public class User implements Serializable {
 	private String address;
 
 	private String email;
+	private String password;
 
 	@Column(name="id_proof")
 	private String idProof;
@@ -133,4 +134,13 @@ public class User implements Serializable {
 		return userRole;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	
 }
