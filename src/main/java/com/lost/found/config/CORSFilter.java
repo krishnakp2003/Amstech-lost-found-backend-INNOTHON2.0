@@ -15,9 +15,12 @@ public class CORSFilter {
 	                registry.addMapping("/**") // allow all routes
 	                        .allowedOrigins("http://localhost:4200") // allow Angular
 	                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+
 	                        .allowedHeaders("*")
 	                        .allowCredentials(true);
 	            }
 	        };
 	    }
+
 	}
+
