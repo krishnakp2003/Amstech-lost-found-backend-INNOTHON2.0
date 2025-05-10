@@ -29,8 +29,6 @@ public class MisssingPersonController {
 	@Operation(summary = "You can use this method for user/student signup", description = "This is desc")
 	@RequestMapping(method = RequestMethod.POST, value = "/missingPersonRegister", consumes = "application/json", produces = "application/json")
 	public RestResponse missingPersonRegister(@RequestBody MissingPersonRequestModel requestModel) {
-
-		
 		try {
 			MissingPersonResponseModel missingPersonRegister = missingPersonService.missingPersonRegister(requestModel);
 			return RestResponse.build().withSuccess("User created successfully", missingPersonRegister);
