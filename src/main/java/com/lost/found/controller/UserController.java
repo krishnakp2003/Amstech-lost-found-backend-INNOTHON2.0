@@ -33,6 +33,7 @@ public class UserController {
 		
 		try {
 			UserResponseModel responseModel = userService.userRegister(requestModel);
+			log.info("User created successfully");
 			return RestResponse.build().withSuccess("User created successfully", responseModel);
 		} catch (Exception e) {
 			log.error("Failed to save user due to: {}", e.getMessage(), e);
