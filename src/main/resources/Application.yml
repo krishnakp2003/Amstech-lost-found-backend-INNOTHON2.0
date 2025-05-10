@@ -1,0 +1,4 @@
+spring:
+  name: lost-found
+  profiles:
+    active: local
