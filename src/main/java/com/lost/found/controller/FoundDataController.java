@@ -1,5 +1,7 @@
 package com.lost.found.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -25,7 +27,7 @@ public class FoundDataController {
 	@RequestMapping(method = RequestMethod.GET, value = "/findByIdProof", produces = "application/json")
 	public RestResponse findByIdProof(@RequestParam("idProof") String idProof) {
 		try {
-			 FoundDataResponseModel foundDataResponseModel = dataService.findByIdProof(idProof);
+			 List<FoundDataResponseModel> foundDataResponseModel = dataService.findByIdProof(idProof);
 			return RestResponse.build().withSuccess("Person Found successfully", foundDataResponseModel);
 		} catch (Exception e) {
 			log.error("Failed to Person Found due to: {}", e.getMessage(), e);
