@@ -1,5 +1,7 @@
 package com.lost.found.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +13,7 @@ public class FoundDataService {
 
 	@Autowired
 	private FoundDataEntityToModel foundDataEntityToModel;
-	public FoundDataResponseModel findByIdProof(String idProof) throws Exception {
+	public List<FoundDataResponseModel> findByIdProof(String idProof) throws Exception {
 		return foundDataEntityToModel.getfindbyIdProof(idProof);
 		
 	}

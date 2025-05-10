@@ -1,5 +1,8 @@
 package com.lost.found.convertor.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,12 +16,13 @@ public class FoundDataEntityToModel {
 	@Autowired
 	private FoundDataRepo foundDataRepo;
 	
-		public FoundDataResponseModel getfindbyIdProof(String  idProof) throws Exception  {
-			FoundData foundData = foundDataRepo.findByIdProof(idProof);
-			if(foundData==null) {
+		public List<FoundDataResponseModel> getfindbyIdProof(String  idProof) throws Exception  {
+			List<FoundData> foundDatas = foundDataRepo.findByIdProof(idProof);
+			if(foundDatas==null) {
 				throw new Exception("Person not found this Identity");
 			}
-			
+			List<FoundDataResponseModel> dataResponseModels=new ArrayList<>();
+			for (FoundData foundData : foundDatas) {
 			FoundDataResponseModel responseModel = new FoundDataResponseModel();
 			responseModel.setId(foundData.getId());
 			responseModel.setMissingPersonId(foundData.getMissingPerson().getId());
@@ -31,8 +35,9 @@ public class FoundDataEntityToModel {
 			responseModel.setDescription(foundData.getMissingPerson().getDescription());
 			responseModel.setLocation(foundData.getLocation());
 			responseModel.setTime(foundData.getTime());
-			return responseModel;
-
+			dataResponseModels.add(responseModel);
+			}
+			return dataResponseModels;
 		}
 	}
 
