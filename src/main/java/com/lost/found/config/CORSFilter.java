@@ -12,12 +12,15 @@ public class CORSFilter {
 	        return new WebMvcConfigurer() {
 	            @Override
 	            public void addCorsMappings(CorsRegistry registry) {
-	                registry.addMapping("/") // allow all routes
+	                registry.addMapping("/**") // allow all routes
 	                        .allowedOrigins("http://localhost:4200") // allow Angular
-	                        .allowedMethods("POST", "PUT", "DELETE", "OPTIONS")
+	                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+
 	                        .allowedHeaders("*")
 	                        .allowCredentials(true);
 	            }
 	        };
 	    }
+
 	}
+
