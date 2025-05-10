@@ -41,7 +41,7 @@ public class UserController {
 		}
 	}
 	@Operation(summary = "You can use this method for user Login", description = "This is desc")
-	@RequestMapping(method = RequestMethod.POST, value = "/userLogin", consumes = "application/json", produces = "application/json")
+	@RequestMapping(method = RequestMethod.POST, value = "/login", consumes = "application/json", produces = "application/json")
 	public RestResponse login(@RequestBody UserLoginRequestModel loginRequestModel) {
 
 		try {
