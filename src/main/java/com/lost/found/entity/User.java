@@ -32,9 +32,7 @@ public class User implements Serializable {
 	private String name;
 
 	//bi-directional many-to-one association to FoundData
-	@OneToMany(mappedBy="user")
-	private List<FoundData> foundData;
-
+	
 	//bi-directional many-to-one association to UserRole
 	@OneToMany(mappedBy="user")
 	private List<UserRole> userRoles;
@@ -88,28 +86,6 @@ public class User implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public List<FoundData> getFoundData() {
-		return this.foundData;
-	}
-
-	public void setFoundData(List<FoundData> foundData) {
-		this.foundData = foundData;
-	}
-
-	public FoundData addFoundData(FoundData foundData) {
-		getFoundData().add(foundData);
-		foundData.setUser(this);
-
-		return foundData;
-	}
-
-	public FoundData removeFoundData(FoundData foundData) {
-		getFoundData().remove(foundData);
-		foundData.setUser(null);
-
-		return foundData;
 	}
 
 	public List<UserRole> getUserRoles() {

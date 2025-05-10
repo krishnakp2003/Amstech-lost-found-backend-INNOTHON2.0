@@ -32,8 +32,7 @@ public class FoundData implements Serializable {
 	private MissingPerson missingPerson;
 
 	//bi-directional many-to-one association to User
-	@ManyToOne
-	private User user;
+	
 
 	public FoundData() {
 	}
@@ -78,12 +77,5 @@ public class FoundData implements Serializable {
 		this.missingPerson = missingPerson;
 	}
 
-	public User getUser() {
-		return this.user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 }

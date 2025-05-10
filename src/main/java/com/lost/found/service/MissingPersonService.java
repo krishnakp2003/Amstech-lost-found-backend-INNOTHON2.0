@@ -1,5 +1,7 @@
 package com.lost.found.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +28,19 @@ public class MissingPersonService {
 		MissingPerson save = missingPersonRepo.save(missingPersonRegister);
 		return missingPersonEntityToModel.getfindbyId(save);
 
+	}
+	
+	public MissingPersonResponseModel findByIdProof(String idProof) throws Exception {
+		return missingPersonEntityToModel.getfindbyIdProof(idProof);
+		
+	}
+	public MissingPersonResponseModel findById(Integer id ) throws Exception {
+	Optional<MissingPerson> optional = missingPersonRepo.findById(id);
+	if(!optional.isPresent()) {
+		throw new Exception("Missing person not found");		
+	}
+	
+		return missingPersonEntityToModel.getfindbyId(optional.get());
+		
 	}
 }
